@@ -13,7 +13,7 @@ class Address extends BaseValidate {
    */
   protected $rule = [
     'name' => 'require',
-    'mobile' => 'require|mobile',
+    'mobile' => 'require',
     'province' => 'require',
     'city' => 'require',
     'country' => 'require',

@@ -6,13 +6,20 @@ use app\common\controller\BaseController;
 use app\common\result\Result;
 use app\common\utils\TokenUtils;
 use app\wechat_shop\model\User as UserModel;
+use app\wechat_shop\model\UserAddress;
 use app\wechat_shop\validate\Address as AddressValidate;
 
 class Address extends BaseController {
 
   protected $beforeActionList = [
-    'checkPrimaryScope' => ['only' => 'createOrUpdateAddress']
+    'checkPrimaryScope' => ['only' => 'createOrUpdateAddress, getUserAddress']
   ];
+
+  public function getUserAddress () {
+    $uid = TokenUtils::getValueByToken('uid');
+    $userAddress = UserAddress::getAddressByUserID($uid);
+    return Result::success(['data' => $userAddress]);
+  }
 
   /**
    * @url /api/wechat_shop/address

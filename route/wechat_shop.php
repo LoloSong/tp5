@@ -19,8 +19,10 @@ Route::get('api/wechat_shop/product/recent', 'wechat_shop/Product/getRecent');
 Route::get('api/wechat_shop/category/all', 'wechat_shop/Category/getCategories');
 
 Route::post('api/wechat_shop/token/user', 'wechat_shop/Token/getToken');
+Route::post('api/wechat_shop/token/verify', 'wechat_shop/Token/verifyToken');
 
 Route::post('api/wechat_shop/address', 'wechat_shop/Address/createOrUpdateAddress');
+Route::get('api/wechat_shop/address', 'wechat_shop/Address/getUserAddress');
 
 Route::post('api/wechat_shop/order', 'wechat_shop/Order/placeOrder');
 
